@@ -6,6 +6,15 @@ The project demonstrates an **end-to-end ML workflow** — from data preprocessi
 🚀 **Live App:**  
 👉 https://house-price-prediction-amd-aappvxv8yf2hu9pnr6byykq.streamlit.app/
 
+## 📸 Application Preview
+
+<p align="center">
+  <img src="screenshots/ui_home.png" width="800"/>
+  <br/><br/>
+  <img src="screenshots/prediction_result.png" width="800"/>
+</p>
+
+
 ---
 
 ## ✨ Project Highlights
