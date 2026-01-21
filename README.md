@@ -7,7 +7,7 @@ The system is designed to be **device-agnostic** and **AMD ROCm compatible**, me
 - CPU (local development)
 - AMD GPUs (via ROCm on AMD Developer Cloud)
 
----
+
 
 ## 🧠 Key Features
 - End-to-end ML workflow (EDA → Training → Evaluation → Inference)
@@ -17,7 +17,7 @@ The system is designed to be **device-agnostic** and **AMD ROCm compatible**, me
 - Clean project structure
 - Streamlit-ready deployment
 
----
+
 
 ## 🧱 Tech Stack
 - Python 3.10
@@ -28,7 +28,7 @@ The system is designed to be **device-agnostic** and **AMD ROCm compatible**, me
 - Streamlit
 - Git & GitHub
 
----
+
 
 ## 📂 Project Structure
 
@@ -52,7 +52,7 @@ house-price-prediction-amd/
 └── screenshots/
 
 
----
+
 
 ## 🚀 ROCm & AMD GPU Compatibility
 
