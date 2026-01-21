@@ -11,8 +11,16 @@ The project demonstrates an **end-to-end ML workflow** — from data preprocessi
 <p align="center">
   <img src="screenshots/ui_home.png" width="800"/>
   <br/><br/>
-  <img src="screenshots/prediction_result.png" width="800"/>
+  <img src="screenshots/prediction.png" width="800"/>
 </p>
+
+## 🏗️ System Architecture
+
+1. User inputs house features via Streamlit UI  
+2. Inputs are scaled using the same preprocessing logic used during training  
+3. Trained PyTorch model performs inference (CPU / AMD ROCm-ready)  
+4. Prediction is inverse-scaled to original price range  
+5. Final result is displayed in Lakhs or Crores  
 
 
 ---
