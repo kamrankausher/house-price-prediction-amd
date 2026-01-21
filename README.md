@@ -39,9 +39,6 @@ house-price-prediction-amd/
 │
 ├── notebooks/
 │ ├── 01_data_understanding.ipynb
-│ ├── 02_eda.ipynb
-│ ├── 03_feature_engineering.ipynb
-│ ├── 04_model_training_pytorch.ipynb
 │ ├── 07_rocm_ready_inference.ipynb
 │
 ├── models/
