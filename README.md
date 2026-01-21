@@ -1,94 +1,105 @@
-# 🏠 House Price Prediction — AMD ROCm Ready ML Project
+# 🏠 House Price Prediction — AMD ROCm Ready ML App
 
-## 📌 Project Overview
-This project implements an **end-to-end Machine Learning pipeline** for predicting house prices using PyTorch.
+A production-grade **Machine Learning web application** that predicts house prices based on real-estate features using a **PyTorch neural network**.  
+The project demonstrates an **end-to-end ML workflow** — from data preprocessing and model training to real-time inference and cloud deployment.
 
-The system is designed to be **device-agnostic** and **AMD ROCm compatible**, meaning the same inference code can run on:
-- CPU (local development)
-- AMD GPUs (via ROCm on AMD Developer Cloud)
+🚀 **Live App:**  
+👉 https://house-price-prediction-amd-aappvxv8yf2hu9pnr6byykq.streamlit.app/
 
+---
 
+## ✨ Project Highlights
 
-## 🧠 Key Features
-- End-to-end ML workflow (EDA → Training → Evaluation → Inference)
-- PyTorch neural network model
-- Proper feature scaling & inverse-scaling
-- ROCm-ready inference logic
-- Clean project structure
-- Streamlit-ready deployment
+🔹 End-to-end ML pipeline (data → model → deployment)  
+🔹 PyTorch neural network for regression  
+🔹 Streamlit web interface with interactive inputs  
+🔹 Automatic price formatting (Lakhs / Crores)  
+🔹 AMD ROCm-ready inference design  
+🔹 Cloud-deployed and publicly accessible  
 
+---
 
+## 🧠 Problem Statement
 
-## 🧱 Tech Stack
-- Python 3.10
-- PyTorch
-- Scikit-learn
-- Pandas, NumPy
-- Jupyter Notebook
-- Streamlit
-- Git & GitHub
+Real-estate pricing depends on multiple socio-economic and regional factors.  
+This project aims to **predict house prices** by learning patterns from historical housing data using a deep learning model.
 
+---
 
+## 📊 Input Features
 
-## 📂 Project Structure
+The model uses the following parameters:
 
-house-price-prediction-amd/
-│
-├── data/
-│ └── housing.csv
-│
-├── notebooks/
-│ ├── 01_data_understanding.ipynb
-│ ├── 07_rocm_ready_inference.ipynb
-│
-├── models/
-│ └── house_price_model.pt
-│
-├── app/
-│ └── app.py
-│
-├── requirements.txt
-├── README.md
+• Average Area Income  
+• Average House Age  
+• Average Number of Rooms  
+• Average Number of Bedrooms  
+• Area Population  
 
+---
 
+## 🧠 Model Details
 
+• **Framework:** PyTorch  
+• **Model Type:** Fully Connected Neural Network  
+• **Task:** Regression  
+• **Target Variable:** House Price  
 
+The trained model is stored as a `.pt` file and loaded directly into the Streamlit app for inference.
 
-## 🚀 ROCm & AMD GPU Compatibility
+---
 
-The inference notebook uses the following device logic:
+## 🖥️ Tech Stack
 
-```python
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+### 💻 Languages & Libraries
+![Python](https://img.shields.io/badge/Python-3670A0?style=plastic&logo=python&logoColor=ffdd54)
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=plastic&logo=PyTorch&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=plastic&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=plastic&logo=pandas&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=plastic&logo=scikit-learn&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-%23FF4B4B.svg?style=plastic&logo=streamlit&logoColor=white)
 
 
-This allows:
+---
 
-CPU execution during development
+## ☁️ Deployment
 
-Seamless AMD GPU execution using ROCm without code changes
+🚀 **Platform:** Streamlit Cloud  
 
-This reflects real-world, production-grade ML deployment practices.
+Deployment workflow:
+1. Push project to GitHub  
+2. Connect repository to Streamlit Cloud  
+3. Select `app.py` as the entry file  
+4. Streamlit installs dependencies automatically  
 
-📊 Results
+No paid services required.
 
-Model trained using PyTorch
+---
 
-Predictions inverse-scaled to real house prices
+## 🎯 Use Cases
 
-Clear comparison between actual and predicted prices
+✔ Data Science portfolios  
+✔ Machine Learning internships / placements  
+✔ Demonstrating ML deployment skills  
+✔ AMD GPU inference experimentation  
+✔ Resume & LinkedIn projects  
 
-🔮 Future Improvements
+---
 
-Run inference on AMD GPU (ROCm) cloud instance
+## 👤 Author
 
-Hyperparameter tuning
+**Kamran Kausher**  
+🎓 Final-year B.Tech Computer Science student  
+💡 Data Science | Machine Learning | Generative AI  
 
-Model monitoring
+🌐 **Connect with me:**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=plastic&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kamran-kausher-7585b0370)  
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=plastic&logo=github&logoColor=white)](https://github.com/kamrankausher)  
+[![Email](https://img.shields.io/badge/Email-D14836?style=plastic&logo=gmail&logoColor=white)](mailto:kamrankausher@gmail.com)
 
-CI/CD pipeline
+---
 
-👤 Author
+⭐ *This project focuses on practical ML engineering, clean deployment, and real-world usability rather than theoretical experimentation.*
 
-Kamran Kausher
-B.Tech CSE | Data Science & GenAI
+
+
