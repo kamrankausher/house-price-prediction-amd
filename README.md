@@ -49,7 +49,7 @@ house-price-prediction-amd/
 │
 ├── requirements.txt
 ├── README.md
-└── screenshots/
+
 
 
 
