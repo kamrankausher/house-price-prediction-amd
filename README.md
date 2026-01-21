@@ -78,6 +78,22 @@ The trained model is stored as a `.pt` file and loaded directly into the Streaml
 
 
 ---
+## ▶️ Run Locally
+
+To run the project on your local machine:
+
+```bash
+git clone https://github.com/kamrankausher/house-price-prediction-amd.git
+cd house-price-prediction-amd
+
+pip install -r requirements.txt
+streamlit run app.py
+
+The application will be available at:
+Local URL: http://localhost:8501
+  Network URL: http://10.201.184.254:8501
+
+---
 
 ## ☁️ Deployment
 
