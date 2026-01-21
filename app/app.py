@@ -4,20 +4,42 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-# Load data (for scaler stats)
-df = pd.read_csv("../data/housing.csv")
-df = df.drop(columns=["Address"])
+# -------------------------------
+# Page config
+# -------------------------------
+st.set_page_config(
+    page_title="House Price Prediction (AMD ROCm Ready)",
+    page_icon="🏠",
+    layout="centered"
+)
+
+# -------------------------------
+# Load data (for scaler)
+# -------------------------------
+@st.cache_data
+def load_data():
+    df = pd.read_csv("data/housing.csv")
+    df = df.drop(columns=["Address"])
+    return df
+
+df = load_data()
 
 X = df.drop("Price", axis=1)
-y = df["Price"]
 
+# -------------------------------
+# Fit scaler on full dataset
+# -------------------------------
 scaler = StandardScaler()
 scaler.fit(X)
 
-# Device (CPU now, AMD GPU later)
+# -------------------------------
+# Device (CPU on Streamlit, AMD GPU ready locally)
+# -------------------------------
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Model definition
+# -------------------------------
+# Model definition (MUST MATCH TRAINING)
+# -------------------------------
 class HousePriceModel(torch.nn.Module):
     def __init__(self, input_dim):
         super().__init__()
@@ -32,21 +54,41 @@ class HousePriceModel(torch.nn.Module):
     def forward(self, x):
         return self.model(x)
 
-# Load model
-model = HousePriceModel(X.shape[1])
-state_dict = torch.load("../models/house_price_model.pt", map_location=device)
-model.load_state_dict(state_dict)
-model.to(device)
-model.eval()
+# -------------------------------
+# Load trained model
+# -------------------------------
+@st.cache_resource
+def load_model():
+    model = HousePriceModel(X.shape[1])
+    state_dict = torch.load("models/house_price_model.pt", map_location=device)
+    model.load_state_dict(state_dict)
+    model.to(device)
+    model.eval()
+    return model
 
+model = load_model()
+
+# -------------------------------
 # UI
-st.title("🏠 House Price Prediction (AMD ROCm Ready)")
+# -------------------------------
+st.title("🏠 House Price Prediction")
+st.caption("PyTorch model • AMD ROCm-ready inference design")
+
+st.markdown("### Enter house details")
 
 inputs = []
 for col in X.columns:
-    val = st.number_input(col, float(X[col].min()), float(X[col].max()))
+    val = st.number_input(
+        label=col,
+        min_value=float(X[col].min()),
+        max_value=float(X[col].max()),
+        value=float(X[col].mean())
+    )
     inputs.append(val)
 
+# -------------------------------
+# Prediction
+# -------------------------------
 if st.button("Predict Price"):
     scaled = scaler.transform([inputs])
     tensor = torch.tensor(scaled, dtype=torch.float32).to(device)
@@ -54,8 +96,11 @@ if st.button("Predict Price"):
     with torch.no_grad():
         pred = model(tensor)
 
-    y_mean = y.mean()
-    y_std = y.std()
-    price = (pred.cpu().numpy()[0][0] * y_std) + y_mean
+    price = pred.cpu().numpy()[0][0]
 
-    st.success(f"Estimated House Price: ₹ {price:,.2f}")
+    st.success(f"💰 Estimated House Price: ₹ {price:,.2f}")
+
+st.markdown("---")
+st.markdown(
+    "**Tech Stack:** PyTorch • Streamlit • AMD ROCm-ready architecture"
+)
