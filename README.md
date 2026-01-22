@@ -88,6 +88,8 @@ cd house-price-prediction-amd
 
 pip install -r requirements.txt
 streamlit run app.py
+```
+
 
 The application will be available at:
 Local URL: http://localhost:8501
